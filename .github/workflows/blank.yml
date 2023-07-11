@@ -1,0 +1,38 @@
+name: Build Docker Images
+
+on:
+  push:
+    branches:
+      - main
+
+# Workflow for QA build
+jobs:
+  qa_build:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/qa/')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set QA environment variables
+        run: |
+          echo "QA_ENV=your_qa_environment_variables" >> $GITHUB_ENV
+          # Add other QA environment variables here
+
+      - name: Build and tag Docker image (QA)
+        run: |
+          echo "qa build"
+
+# Workflow for production build (frontend projects only)
+  prod_build:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/prod/')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and tag Docker image (production)
+        run: |
+          echo "qa build"
