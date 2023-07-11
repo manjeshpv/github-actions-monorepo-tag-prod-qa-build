@@ -3,7 +3,7 @@ name: Build Docker Images
 on:
   push:
     tags:
-      - 'all/qa/*'
+      - '*'
 
 # Workflow for QA build
 jobs:
