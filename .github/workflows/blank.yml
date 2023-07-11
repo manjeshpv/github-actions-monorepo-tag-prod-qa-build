@@ -3,8 +3,7 @@ name: Build Docker Images
 on:
   push:
     tags:
-      - 'qa/*'   # Matches tags starting with 'qa/'
-      - 'prod/*' # Matches tags starting with 'prod/'
+      - 'all/qa/*'
 
 # Workflow for QA build
 jobs:
